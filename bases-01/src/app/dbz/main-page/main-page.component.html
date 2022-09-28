@@ -1,0 +1,27 @@
+<h1>Dragon Ball Z</h1>
+<hr>
+<div class="row">
+    <div class="col">
+        
+        <!-- main-page.component.html -->
+        <app-personajes [Data]="personajesArray">
+
+        </app-personajes>
+
+
+<!-- ¿ Cuándo vamos a utilizar la info ?   -->
+<!-- ¡ Cuando se renderice el componente ! -->
+
+
+    </div>
+
+    <div class="col">
+        <app-agregar 
+        [nuevo]="nuevo"
+        (onNuevoPersonaje)="agregarNuevoPersonaje( $event )">
+<!-- Escuchamos al evento onNuevoPersonaje cada vez que se llame el componente-->
+    </app-agregar>
+
+    </div>
+
+</div>
