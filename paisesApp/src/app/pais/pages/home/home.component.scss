@@ -1,0 +1,15 @@
+body{
+    position:fixed;
+    overflow: hidden;
+    background-color: rgba(108, 108, 194, 0.664);
+    width: 100vw;
+    height: 100vh;
+    border-radius: 20px;
+    border-left: 5px solid rgb(68, 67, 67);
+}
+.titleHome{
+    color:white;
+    margin: 100px;
+    font-size: 60px;
+    text-shadow: 3px 5px 10px black;
+}

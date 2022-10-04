@@ -1,0 +1,10 @@
+.active{
+    color: rgb(0, 3, 0);
+    font-weight: 600;
+    &::after{
+        content:  ' ✔'
+    }
+}
+a{
+    text-decoration: none;
+}

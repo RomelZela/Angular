@@ -1,0 +1,48 @@
+<h2>Ver pais</h2>
+<hr>
+<div class="alert alert-info"
+    *ngIf="!pais; else divPais">
+    No se encuentró ninguna coincidencia con: <b>{{busqueda}}</b>...
+</div>
+
+<ng-template #divPais>
+    <div class="row">
+        <div class="col-12">
+            <h1><small>{{pais.name}}</small></h1>
+        </div>
+    </div>
+<hr>
+    <div class="row">
+        <div class="col-4">
+            <h3>Bandera</h3>
+            <img class="img-thumbnail" [src]="pais.flag" alt="bandera" width="100" height="100">
+        </div>
+        <div class="col">
+            <h3>Información</h3>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Población:</strong> {{pais.population | number}}</li> 
+                <li class="list-group-item"><strong>Area:</strong> {{pais.area | number}}</li> 
+                <li class="list-group-item"><strong>Timezone:</strong> {{pais.timezones}}</li> 
+                <li class="list-group-item"><strong>Idioma:</strong> {{pais.languages[0].name}}</li> 
+                <li class="list-group-item"><strong>Dominio:</strong> {{pais.topLevelDomain}}</li> 
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <span class="badge bg-primary mrCard">{{ pais.translations.br }}</span>
+            <span class="badge bg-primary mrCard">{{ pais.translations.es }}</span>
+            <span class="badge bg-primary mrCard">{{ pais.translations.fr }}</span>
+            <span class="badge bg-primary mrCard">{{ pais.translations.ja }}</span>
+            <span class="badge bg-primary mrCard">{{ pais.translations.it }}</span>
+            <span class="badge bg-primary mrCard">{{ pais.translations.br }}</span>
+            <span class="badge bg-primary mrCard">{{ pais.translations.pt }}</span>
+            <span class="badge bg-primary mrCard">{{ pais.translations.nl }}</span>
+            <span class="badge bg-primary mrCard">{{ pais.translations.hr }}</span>
+            <span class="badge bg-primary mrCard">{{ pais.translations.fa }}</span>
+        </div>
+    </div>
+
+</ng-template>
+

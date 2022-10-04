@@ -1,0 +1,36 @@
+import { NgModule, Component } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+import { PorPaisComponent } from './pais/pages/por-pais/por-pais.component';
+import { PorRegionComponent } from './pais/pages/por-region/por-region.component';
+import { PorCapitalComponent } from './pais/pages/por-capital/por-capital.component';
+import { VerPaisComponent } from './pais/pages/ver-pais/ver-pais.component';
+import { HomeComponent } from './pais/pages/home/home.component';
+
+const routes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'pais', component: PorPaisComponent},
+  {path: 'region', component: PorRegionComponent},
+  {path: 'capital', component: PorCapitalComponent},
+  {path: 'pais/:codigoPais', component: VerPaisComponent},
+  {path: '**', redirectTo: ''}
+
+]
+
+
+
+@NgModule({
+  declarations: [],
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
+  ]
+})
+export class AppRoutingModule { 
+
+
+
+
+}
