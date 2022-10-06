@@ -1,0 +1,76 @@
+<div class="text-layout">
+    <h1>Pipes Básicos</h1>
+    <p>
+        Pipes incluídos en Angular - Usualmente en el Common Module.
+    </p>
+</div>
+
+<div class="flex flex-row">
+    <div class="col-4 justify-content-center">
+        <p-card header="uppercase"
+                subheader="Original: {{nombreLower}}">
+                <hr>
+            {{nombreLower | uppercase}}
+        </p-card>
+    </div>
+    <div class=" col-4 justify-content-center">
+        <p-card header="lowercase"
+        subheader="Original: {{nombreLower}}">
+        <hr>
+            {{nombreLower | lowercase}}
+        </p-card>
+   </div>
+    <div class=" col-4 justify-content-center">
+        <p-card header="titlecase"
+        subheader="Original: {{nombreLower}}">
+        <hr>
+                {{nombreLower | titlecase}}
+        </p-card>
+    </div>
+</div>
+
+<div class="flex flex-row">
+    <div class=" col-6 justify-content-center">
+        <p-card>
+            <ul>
+                <li>
+                    Fecha:
+                </li>
+                <li>
+                Fecha | date:
+                </li>
+                <li>
+                Fecha | 'short'
+                </li>
+                <li>
+                Fecha | 'long'
+                </li>
+                <li>
+                Fecha | 'dd/MM/YYYY'
+                </li>
+              
+            </ul>
+        </p-card>
+    </div>
+    <div class=" col-6 justify-content-center">
+        <p-card>
+           <ul>
+                <li>
+                    {{fecha}}
+                </li>
+                <li>
+                    {{fecha | date}}
+                </li>
+                <li>
+                    {{fecha | date:'short'}}
+                </li>
+                <li>
+                    {{fecha | date:'long'}}
+                </li>
+                <li>
+                    {{fecha | date:'dd/MM/YYYY'  }}
+                </li>
+            </ul>
+        </p-card>
+    </div>
+</div>

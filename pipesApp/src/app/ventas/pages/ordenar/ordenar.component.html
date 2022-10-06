@@ -1,0 +1,22 @@
+<div class="text-layout">
+    <h1>Pipes personalizados</h1>
+    <p>Pipes creados por nosotros</p>
+</div>
+
+<div class="grid">
+    <div class="col-12">
+        <p-fieldset legend="Pipe personalizado" [toggleable]=true >
+            Convertir el nombre entre mayus y minus.<br><br>
+            <strong>Importante: </strong>
+            Se ha utilizado el archivo 'mayusculas.pipe.ts' para realizar esta tarea
+            <hr>
+            {{ nombreCompleto | mayusculas:(convertir)}} 
+            <br> <br>
+            <button pButton label="Convertir string" (click)="cambiarString()"></button>
+            <hr>
+            <a href="https://www.udemy.com/course/angular-fernando-herrera/learn/lecture/23908488" target="_blank"> Video </a><i class="pi pi-video"></i>
+        </p-fieldset>
+            
+    </div>
+</div>
+<hr>

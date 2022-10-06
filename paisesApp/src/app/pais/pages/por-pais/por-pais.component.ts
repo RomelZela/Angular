@@ -35,25 +35,19 @@ export class PorPaisComponent{
   quitarError(){
     this.hayError=false;
   }
-  
-  sugerencias(termino:string){
+  sugerencias(termino: string) {
     this.hayError = false;
-    this.termino=termino;
-    this.mostrarSugerencia=true;
+    this.termino = termino;
+    this.mostrarSugerencia = true;
 
     this.paisService.buscarPais(termino)
-    .subscribe({
-      next: (paises => this.paisesSurgeridos = paises.splice(0,5)),
-      error: (err => {console.log(err)
-      this.paisesSurgeridos = []
-    }
-    )
-}
-    )
-}
-
-  buscarSugerido(termino:string){
-    this.buscar(termino);
-    
+      .subscribe({
+        next: (paises => this.paisesSurgeridos = paises.splice(0, 5)),
+        error: (err => {
+          console.log(err)
+          this.paisesSurgeridos = []
+        })
+      })
   }
+
 }

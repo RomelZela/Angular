@@ -1,5 +1,6 @@
-<form (ngSubmit)="buscar()" autocomplete="off">
+<form (ngSubmit)="buscar(termino.value)" autocomplete="off">
     <input type="text"
+            #termino
             name="termino"
             class="form-control"
             [placeholder]="placeholder"
@@ -9,3 +10,18 @@
 
 </form>
 
+<ul class="list-group" *ngIf="mostrarSugerencia">
+    <li class="list-group-item list-group-item-action"
+    *ngFor="let paises of paisesSurgeridos">
+        
+        <a class="nav-link" [routerLink]="['/pais', paises.alpha2Code]">{{paises.name}}</a>
+    </li>
+
+
+    <li class="list-group-item list-group-item-action">
+        
+        <a class="nav-link" 
+        (click)="buscarSugerido(termino)"
+        >Buscar: <b>{{termino | titlecase}}</b></a>
+    </li>
+</ul>

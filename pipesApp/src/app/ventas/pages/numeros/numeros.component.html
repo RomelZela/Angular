@@ -1,0 +1,55 @@
+<div class="text-layout">
+    <h1>DecimalPipes y Porcentaje</h1>
+    <p>
+        Pipes incluídos en Angular - Usualmente en el Common Module.
+    </p>
+</div>
+
+<!-- Number / Decimal -->
+<div class="flex flex-row">
+    <div class="col-4 justify-content-center">
+        <p-card header="Números/Decimales"
+        subheader="Original {{ventasNetas}}"
+        >
+         <i class="pi pi-dollar"></i>
+        {{ventasNetas | number:'1.2-2'}}
+        <hr>
+<strong>Pipe: Number</strong><br>
+<a href="https://angular.io/api/common/DecimalPipe" target="_blank"> Doc </a><i class="pi pi-link"></i><br>
+<a href="https://www.udemy.com/course/angular-fernando-herrera/learn/lecture/23892676" target="_blank"> Video </a><i class="pi pi-video"></i>
+        </p-card>
+</div>
+    
+<!-- Currency -->
+<div class="col-4 justify-content-center">
+    <p-card header="Currency"
+    subheader="Original {{ventasNetas}}"
+    >
+    {{ventasNetas + 2000000 | currency:'€'}}
+    <hr>
+<strong>Pipe: Currency</strong><br>
+<a href="https://angular.io/api/common/CurrencyPipe" target="_blank"> Doc </a><i class="pi pi-link"></i><br>
+<a href="https://www.udemy.com/course/angular-fernando-herrera/learn/lecture/23893168" target="_blank"> Video </a><i class="pi pi-video"></i>
+    </p-card>
+</div>
+
+
+
+<!-- Percent -->
+    <div class="col-4 justify-content-center">
+        <p-card header="Porcentajes"
+        subheader="Original {{porcentaje}}"
+        >
+        {{porcentaje | percent: '2.2-2'}}
+        <hr>
+<strong>Pipe: Percent</strong><br>
+<a href="https://angular.io/api/common/PercentPipe" target="_blank"> Doc </a><i class="pi pi-link"></i><br>
+<a href="https://www.udemy.com/course/angular-fernando-herrera/learn/lecture/23893168" target="_blank"> Video </a><i class="pi pi-video"></i>
+
+        </p-card>
+    </div>
+    
+
+</div>
+
+

@@ -1,0 +1,132 @@
+<div class="text-layout">
+    <h1>Pipes no tan comunes</h1>
+    <p>
+        Pipes incluídos en Angular - Usualmente en el Common Module.
+    </p>
+</div>
+
+<fieldset>
+<div class="grid">
+    <div class="col-12 sm:col-6">
+        <p-fieldset legend="I18nSelect" [toggleable]="true" [collapsed]="true" >
+            Selector genérico que muestra la cadena que coincide con el valor actual.
+            <hr>
+            <p>
+                <small>Ejemplo:<br>
+                Saludos {{ nombre }}, es un placer {{ genero | i18nSelect:invitacionMapa }} a nuestro evento.</small>
+            </p>
+
+            <button pButton type="button" label="Cambiar cliente" (click)="cambiarCliente()" ></button>
+            <hr>
+            <strong>Pipe: I18nSelect</strong><br>
+            <a href="https://angular.io/api/common/I18nSelectPipe" target="_blank"> Doc </a><i class="pi pi-link"></i><br>
+            <a href="https://www.udemy.com/course/angular-fernando-herrera/learn/lecture/23893946" target="_blank"> Video </a><i class="pi pi-video"></i>
+
+        </p-fieldset>
+    </div>
+
+
+    <div class="col-12 sm:col-6">
+        <p-fieldset legend="I18nPlural" [toggleable]="true" [collapsed]="true" >
+            Asigna un valor a una cadena que pluraliza el valor de acuerdo con las reglas locales.
+            <hr>
+            <p>
+                <small>Ejemplo:<br>
+                Actualmente tenemos a <span *ngFor="let cliente of clientes"><b>{{cliente}}</b></span><b>{{ clientes.length | i18nPlural:clientesMapa }}</b></small>
+            </p>
+            <button pButton type="button" label="Borrar cliente" (click)="borrarCliente()"></button>
+             <hr>
+            <strong>Pipe: I18nPlural </strong><br>
+            <a href="https://angular.io/api/common/I18nPluralPipe" target="_blank"> Doc </a><i class="pi pi-link"></i><br>
+            <a href="https://www.udemy.com/course/angular-fernando-herrera/learn/lecture/23894006" target="_blank"> Video </a><i class="pi pi-video"></i>
+
+        </p-fieldset>
+    </div>
+</div>
+</fieldset>
+<br><br>
+<fieldset>
+
+<div class="grid">
+    <div class="col-12 sm:col-6">
+        <p-fieldset legend="Slice" [toggleable]="true" [collapsed]="true" >
+            Creates a new Array or String containing a subset (slice) of the elements:
+<br>
+            <code> value_expression | slice : start [ : end ] </code>
+           
+            <hr>
+            <p>
+                Original:<br>
+                {{clientes}}<br>
+                <small>slice:0:2:<br>
+                {{ clientes | slice:0:2 }}</small>
+            </p>
+
+            <button pButton type="button" label="Cambiar cliente" (click)="cambiarCliente()" ></button>
+            <hr>
+            <strong>Pipe: Slice</strong><br>
+            <a href="https://angular.io/api/common/SlicePipe" target="_blank"> Doc </a><i class="pi pi-link"></i><br>
+            <a href="https://www.udemy.com/course/angular-fernando-herrera/learn/lecture/23906282" target="_blank"> Video </a><i class="pi pi-video"></i>
+
+        </p-fieldset>
+    </div>
+
+    <div class="col-12 sm:col-6">
+        <p-fieldset legend="KeyValue" [toggleable]="true" [collapsed]="true" >
+            Imprimir el indice y el valor de un array:
+<br>
+           
+            <hr>
+            <ul>
+                <li *ngFor="let persona of persona | keyvalue">
+                    <b>{{ persona.key | titlecase }}: </b> {{persona.value}}
+                </li>
+            </ul>
+            <hr>
+            <strong>Pipe: Keyvalue</strong><br>
+            <a href="https://angular.io/api/common/KeyValuePipe" target="_blank"> Doc </a><i class="pi pi-link"></i><br>
+            <a href="https://www.udemy.com/course/angular-fernando-herrera/learn/lecture/23906510" target="_blank"> Video </a><i class="pi pi-video"></i>
+
+        </p-fieldset>
+    </div>
+
+
+    <div class="col-12 sm:col-6">
+        <p-fieldset legend="Json" [toggleable]="true" [collapsed]="true" >
+            Imprimir un objeto en formato json.
+<br>
+            <hr>
+            <ul>
+                {{persona | json}}
+            </ul>
+            <hr>
+            <strong>Pipe: Json</strong><br>
+            <a href="https://angular.io/api/common/JsonPipe" target="_blank"> Doc </a><i class="pi pi-link"></i><br>
+            <a href="https://www.udemy.com/course/angular-fernando-herrera/learn/lecture/23907940" target="_blank"> Video </a><i class="pi pi-video"></i>
+
+        </p-fieldset>
+    </div>
+
+
+
+
+    
+    <div class="col-12 sm:col-6">
+        <p-fieldset legend="Async" [toggleable]="true" [collapsed]="true" >
+            Imprimir un objeto en formato json.
+<br>
+            <hr>
+            <ul>
+                <pre>
+                     {{valorPromesa | async }}
+                </pre>
+            </ul>
+            <hr>
+            <strong>Pipe: Json</strong><br>
+            <a href="https://angular.io/api/common/AsyncPipe" target="_blank"> Doc </a><i class="pi pi-link"></i><br>
+            <a href="https://www.udemy.com/course/angular-fernando-herrera/learn/lecture/23908008" target="_blank"> Video </a><i class="pi pi-video"></i>
+
+        </p-fieldset>
+    </div>
+</div>
+</fieldset>

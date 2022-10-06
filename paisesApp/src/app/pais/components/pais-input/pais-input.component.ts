@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators'
 import { Country } from '../../interfaces/pais.interface';
+import { PaisService } from '../../services/pais.service';
 
 @Component({
   selector: 'app-pais-input',
@@ -25,14 +26,20 @@ export class PaisInputComponent implements OnInit{
   }
 
 
-  buscar(){
+  buscar(termino: string){
+    this.termino = termino;
     this.onEnter.emit(this.termino);
   }
   
   teclaPresionada(){
     this.debouncer.next( this.termino )
   }
-  constructor() { }
+  constructor(private paisService: PaisService) { }
+  
+  hayError:boolean= false;
+  paises: Country[] = [];
+  paisesSurgeridos: Country[] = []
+  mostrarSugerencia:boolean=false;
   
   ngOnInit(): void {
 
@@ -44,7 +51,26 @@ export class PaisInputComponent implements OnInit{
 
   }
 
-  
+  sugerencias(termino:string){
+    this.hayError = false;
+    this.termino=termino;
+    this.mostrarSugerencia=true;
+
+    this.paisService.buscarPais(termino)
+    .subscribe({
+      next: (paises => this.paisesSurgeridos = paises.splice(0,5)),
+      error: (err => {console.log(err)
+      this.paisesSurgeridos = []
+    }
+    )
+}
+    )
+}
+
+  buscarSugerido(termino:string){
+    this.buscar(termino);
+    
+  }
 }
 
 
