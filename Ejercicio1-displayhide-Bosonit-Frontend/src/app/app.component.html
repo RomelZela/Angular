@@ -1,0 +1,12 @@
+<body>
+  <h1 class="title">Ejercicio 1</h1>
+  <h2 class="subtitle">Display & Hide</h2>
+  <button 
+     mat-raised-button color="primary"
+    class="displayHideToggle"
+    (click)="toggle()"
+    >{{nameButton}}
+  </button>
+
+  <div class="message" *ngIf="display">Hello World!<mat-icon>mood</mat-icon> </div>
+</body>
