@@ -1,0 +1,19 @@
+.body{
+
+    border:1px solid aqua;
+    margin: 30px 20px;
+}
+.buttonGroup{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+
+
+.title{
+    width: 100%;
+    margin-left: 5px;
+
+}
+
