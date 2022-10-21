@@ -1,0 +1,19 @@
+<p>buscar works!</p>
+
+<form class="example-form">
+      <mat-label>Number</mat-label>
+      <input type="text"
+             placeholder="Busca un superheroe"
+             aria-label="Number"
+             matInput
+            [(ngModel)]="termino"
+            (keypress)="buscando()"
+             [matAutocomplete]="auto">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let option of heroes" [value]="heroes">
+          {{option.superhero}}
+        </mat-option>
+      </mat-autocomplete>
+  </form>
+  
+

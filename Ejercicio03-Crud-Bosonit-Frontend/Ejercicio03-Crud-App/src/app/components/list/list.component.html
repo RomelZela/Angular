@@ -1,0 +1,59 @@
+<table mat-table fxFlex="100"  
+class="mat-elevation-z8">
+<tr>
+
+  <ng-container matColumnDef="position">
+    <th mat-header-cell  mat-sort-header >
+      Nombre de usuario
+    </th>
+</ng-container>
+
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell  mat-sort-header >
+      Correo
+    </th>
+  </ng-container>
+
+  <ng-container matColumnDef="weight">
+    <th mat-header-cell  mat-sort-header >
+      Suscrito
+    </th>
+  </ng-container>
+
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell  mat-sort-header >
+      Pais
+    </th>
+  </ng-container>
+
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell  mat-sort-header >
+      Ciudad
+    </th>
+  </ng-container>
+
+
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell  mat-sort-header >
+      Actions
+    </th>
+  </ng-container>
+
+</tr>
+<tr *ngFor="let user of users" >
+
+    <td mat-cell > {{user.usuario | titlecase}} </td>
+    <td mat-cell> {{user.id}} </td>
+    <td mat-cell *ngIf="user.suscrito; else noSuscrito"><mat-icon>done</mat-icon></td>
+    <ng-template #noSuscrito><td></td></ng-template>
+    <td mat-cell> {{user.pais}} </td>
+    <td mat-cell > {{user.ciudad}} </td>
+                
+                <td mat-cell >
+                    <mat-icon (click)="modifyUser(user.id)">edit</mat-icon>
+                    <mat-icon (click)="deleteUser(user.id)">delete</mat-icon>
+    </td>
+    
+</tr>
+</table>

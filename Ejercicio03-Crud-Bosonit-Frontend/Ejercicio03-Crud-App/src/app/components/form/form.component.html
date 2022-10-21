@@ -1,0 +1,107 @@
+
+<div fxLayout="column" fxFlex="30"
+>
+<mat-form-field>
+    <mat-label>
+        Nombre de usuario
+    </mat-label>
+    <input matInput 
+    type="text"
+    name="name"
+    [(ngModel)]="user.usuario"
+    required
+    >
+</mat-form-field>
+
+
+<mat-form-field>
+    <mat-label>
+        Contraseña
+    </mat-label>
+    <input matInput 
+    type="password"
+    name="passwordx1"
+    [(ngModel)]="passwordx1"
+    required
+    >
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>
+            Confirmar contrasenia
+        </mat-label>
+        <input matInput 
+        type="password"
+        name="passwordx2"
+        [(ngModel)]="user.password"
+        (blur)="checkPassword()"
+        required
+        >
+        </mat-form-field>
+        <p class="PasswordFalse" *ngIf="!isPasswordTrue">Contraseña incorrecta</p>
+
+
+<mat-form-field>
+    <mat-label>
+        Correo
+    </mat-label>
+    <input matInput 
+    type="email"
+    name="email"
+    [(ngModel)]="user.id"
+    required
+    >
+    </mat-form-field>
+      <section>
+      <mat-checkbox [(ngModel)]="user.suscrito"
+      name="suscrito">
+        Enviarme ofertas promocionales</mat-checkbox>
+    </section>
+
+
+  <mat-form-field appearance="fill">
+  <mat-label>Pais</mat-label>
+  <select matNativeControl required
+  [(ngModel)]="countrySelected"
+  (blur)="findCities()"
+  >
+    <option *ngFor="let countries of countries" 
+    >{{countries.pais}}</option>
+
+  </select>
+</mat-form-field>
+
+
+
+<mat-form-field appearance="fill"
+*ngIf="countrySelected"
+>
+    <mat-label>Ciudad</mat-label>
+    <select matNativeControl required
+    name="cities"
+    [(ngModel)]="user.ciudad"
+    >
+      <option *ngFor="let cities of citiesList" 
+      >{{cities}}</option>
+    </select>
+  </mat-form-field>
+
+
+
+            <button mat-raised-button color="warn"
+            *ngIf="isPasswordTrue"
+            (click)="guardar()"
+            >
+                <mat-icon>edit</mat-icon>
+                Guardar
+                
+            </button>
+
+</div>
+                     
+                        <br>
+
+                        <div fxFlex="full">
+                 <app-list [users]="users"></app-list>
+
+
+                </div>

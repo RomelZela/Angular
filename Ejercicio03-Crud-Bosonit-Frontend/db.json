@@ -1,0 +1,68 @@
+{
+  "usuarios": [
+    {
+      "id": "romelzela93@gmail.com",
+      "usuario": "romel",
+      "password": "11",
+      "suscrito": true,
+      "pais": "Algeria",
+      "ciudad": "Blida"
+    },
+    {
+      "id": "romel.zela@bosonit.com",
+      "usuario": "romel",
+      "password": "as",
+      "suscrito": true,
+      "pais": "Angola",
+      "ciudad": "Cazeta"
+    },
+    {
+      "id": "OmcQVGK",
+      "usuario": "",
+      "password": "",
+      "suscrito": true,
+      "pais": "",
+      "ciudad": ""
+    },
+    {
+      "id": "ur1nPKO",
+      "usuario": "",
+      "password": "",
+      "suscrito": true,
+      "pais": "",
+      "ciudad": ""
+    },
+    {
+      "id": "yh9Ny_n",
+      "usuario": "",
+      "password": "",
+      "suscrito": true,
+      "pais": "",
+      "ciudad": ""
+    },
+    {
+      "id": "rUXVI7F",
+      "usuario": "",
+      "password": "",
+      "suscrito": true,
+      "pais": "",
+      "ciudad": ""
+    },
+    {
+      "id": "vwHuuua",
+      "usuario": "",
+      "password": "",
+      "suscrito": true,
+      "pais": "",
+      "ciudad": ""
+    },
+    {
+      "id": "cNS4sBf",
+      "usuario": "",
+      "password": "",
+      "suscrito": true,
+      "pais": "",
+      "ciudad": ""
+    }
+  ]
+}
