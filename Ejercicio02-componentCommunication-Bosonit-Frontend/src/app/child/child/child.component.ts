@@ -8,15 +8,15 @@ import { AppService } from '../../shared/app.service';
 })
 export class ChildComponent implements OnInit {
 
-constructor(private serviceApp: AppService) { 
+  constructor(private serviceApp: AppService) {
     serviceApp.messageParent$.subscribe(
-    msg => this.message = msg
-  )
-}
-  
-  ngOnInit(): void {}
+      msg => this.message = msg
+    )
+  }
 
-  service(){
+  ngOnInit(): void { }
+
+  service() {
     this.serviceApp.setMessageFromServiceToChild(this.messageForServiceToChild)
   }
 
@@ -32,7 +32,7 @@ constructor(private serviceApp: AppService) {
 
   messageForServiceToChild: string = `Child using service`
   messageForOutput: string = `Child using output event`;
-  
+
   @Input() message!: string;
   @Output() messageOutputFromChildToParent = new EventEmitter<string>();
 }

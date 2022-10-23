@@ -5,41 +5,36 @@ import { Observable, Observer, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class AppService {
-  
+
   // Service functions
-  setMessageFromServiceToParent(value: string){
+  setMessageFromServiceToParent(value: string) {
     this._messageToParent.next(value)
   }
-  setMessageFromServiceToChild(value: string){
+  setMessageFromServiceToChild(value: string) {
     this._messageToChild.next(value)
   }
 
 
   // Observable functions
-
-  messageObservableForChild(){
+  messageObservableForChild() {
     return this._messageToChild.next('Child using subject')
   }
-  
-  messageObservableForParent(){
+
+  messageObservableForParent() {
     return this._messageToParent.next('Parent using subject')
   }
 
 
-    //Observable var
+  //Observable var
+  private _messageObservableForChild = new Observable<string>((value) => {
+    value.next('Child using subject')
+  }
+  )
 
-    private _messageObservableForChild = new Observable<string>((value) => {
-      value.next('Child using subject')
-    }
-    )
+  // Service var
+  private _messageToChild = new Subject<string>();
+  private _messageToParent = new Subject<string>();
 
-
-
-  
-    // Service var
-    private _messageToChild = new Subject<string>();
-    private _messageToParent = new Subject<string>();
-  
-    messageChild$ = this._messageToChild.asObservable();
-    messageParent$ = this._messageToParent.asObservable();
+  messageChild$ = this._messageToChild.asObservable();
+  messageParent$ = this._messageToParent.asObservable();
 }
