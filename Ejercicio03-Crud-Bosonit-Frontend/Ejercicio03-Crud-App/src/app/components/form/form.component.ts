@@ -9,12 +9,12 @@ import { ApidbUsersService } from '../../shared/apidb-users.service';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  
-  constructor(private apidbUsers: ApidbUsersService) {
 
+  
+  constructor(private apidbUser: ApidbUsersService) {
   }
   ngOnInit(): void {
-    this.apidbUsers.getUsers().subscribe({
+    this.apidbUser.getList().subscribe({
       next: (users) => this.users = users
     })
   }
@@ -33,28 +33,32 @@ export class FormComponent implements OnInit {
     this.indexCountry = this.countries.findIndex(city => city.pais == this.countrySelected) 
     this.citiesList = this.countries[this.indexCountry].ciudades;
     this.user.pais = this.countrySelected;
-
-  }
-  guardar(){
-    
-    this.apidbUsers.postUser(this.user).subscribe({
-      next: (user) => this.users.push(user),
-      error: (err) => console.log('No ha sido posible almacenar el user en form.component/guardar()', err)
-    });
-
-
   }
 
+  submit(){
 
-
-  user: User = {
-    id: '', 
-    usuario: '',  
-    password: '',  
-    suscrito: true, 
-    pais: '',
-    ciudad: ''
+    if(this.user.id){
+        this.apidbUser.modifyUser(this.user).subscribe({
+      next:() => this.apidbUser.getList(),
+      error: (err) => console.log('No ha sido posible almacenar el user en form.component/guardar()- if', err)
+    })
   }
+  else{
+
+      this.apidbUser.postUser(this.user).subscribe({
+      next: () => this.apidbUser.getList(),
+      error: (err) => console.log('No ha sido posible almacenar el user en form.component/guardar()- else', err)
+    })
+  }
+  this.user = this.user = { ciudad: '', id: '',pais: '',password:'',suscrito:false,usuario:''}
+  this.passwordx1 = ''
+}
+
+  modifyUser(userForModify: User) {
+    this.user = userForModify
+    }
+
+  user: User = {}
 
   users!:User[];
   countrySelected!: string;

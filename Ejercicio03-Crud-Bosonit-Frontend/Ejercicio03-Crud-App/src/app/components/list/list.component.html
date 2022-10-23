@@ -44,15 +44,15 @@ class="mat-elevation-z8">
 <tr *ngFor="let user of users" >
 
     <td mat-cell > {{user.usuario | titlecase}} </td>
-    <td mat-cell> {{user.id}} </td>
+    <td mat-cell> {{user.correo}} </td>
     <td mat-cell *ngIf="user.suscrito; else noSuscrito"><mat-icon>done</mat-icon></td>
     <ng-template #noSuscrito><td></td></ng-template>
     <td mat-cell> {{user.pais}} </td>
     <td mat-cell > {{user.ciudad}} </td>
                 
                 <td mat-cell >
-                    <mat-icon (click)="modifyUser(user.id)">edit</mat-icon>
-                    <mat-icon (click)="deleteUser(user.id)">delete</mat-icon>
+                    <mat-icon class="button" (click)="modifyUser(user.id)">edit</mat-icon>
+                    <mat-icon class="button" (click)="deleteUser(user.id)">delete</mat-icon>
     </td>
     
 </tr>

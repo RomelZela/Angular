@@ -9,7 +9,6 @@
     type="text"
     name="name"
     [(ngModel)]="user.usuario"
-    required
     >
 </mat-form-field>
 
@@ -22,19 +21,17 @@
     type="password"
     name="passwordx1"
     [(ngModel)]="passwordx1"
-    required
     >
     </mat-form-field>
     <mat-form-field>
         <mat-label>
-            Confirmar contrasenia
+            Confirmar contraseña
         </mat-label>
         <input matInput 
         type="password"
         name="passwordx2"
         [(ngModel)]="user.password"
         (blur)="checkPassword()"
-        required
         >
         </mat-form-field>
         <p class="PasswordFalse" *ngIf="!isPasswordTrue">Contraseña incorrecta</p>
@@ -47,20 +44,20 @@
     <input matInput 
     type="email"
     name="email"
-    [(ngModel)]="user.id"
-    required
+    [(ngModel)]="user.correo"
     >
+    
     </mat-form-field>
       <section>
       <mat-checkbox [(ngModel)]="user.suscrito"
       name="suscrito">
         Enviarme ofertas promocionales</mat-checkbox>
     </section>
-
+    <br>
 
   <mat-form-field appearance="fill">
   <mat-label>Pais</mat-label>
-  <select matNativeControl required
+  <select matNativeControl
   [(ngModel)]="countrySelected"
   (blur)="findCities()"
   >
@@ -76,7 +73,7 @@
 *ngIf="countrySelected"
 >
     <mat-label>Ciudad</mat-label>
-    <select matNativeControl required
+    <select matNativeControl
     name="cities"
     [(ngModel)]="user.ciudad"
     >
@@ -88,11 +85,12 @@
 
 
             <button mat-raised-button color="warn"
+            class="button"
             *ngIf="isPasswordTrue"
-            (click)="guardar()"
+            (click)="submit()"
             >
-                <mat-icon>edit</mat-icon>
-                Guardar
+            Guardar
+            <mat-icon>add</mat-icon>
                 
             </button>
 
@@ -101,7 +99,7 @@
                         <br>
 
                         <div fxFlex="full">
-                 <app-list [users]="users"></app-list>
+                 <app-list (userForModify)="modifyUser($event)" [users]="users"></app-list>
 
 
                 </div>

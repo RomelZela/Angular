@@ -9,33 +9,25 @@ import { ApidbUsersService } from '../../shared/apidb-users.service';
 })
 export class ListComponent implements OnInit {
 
+  constructor(private apidbUser: ApidbUsersService) {}
 
-  constructor(private apidbUser: ApidbUsersService) { 
+  ngOnInit(): void {}
 
+  modifyUser(email: any) {
+
+    this.filterID = this.users.find(user => user.id == email);
+    this.userForModify.emit(this.filterID);
   }
 
-  ngOnInit(): void {
-
-  }
-  modifyUser(email: any){
-    console.log('modificar Usuario', typeof email)
-  }
-
-  
-  deleteUser(email: any){
-    console.log(this.users, ' Before')
-
+  deleteUser(email: any) {
+    
     this.apidbUser.deleteUser(email).subscribe({
-      next: (users) => console.log('Usuario eliminado desde list-component. deleteUser()'),
+      next: () => this.apidbUser.getList(),
       error: (err) => console.log(`Ha ocurrido un error en list-components.ts/deleteUsers() `, err)
     })
-
-
-    this.ngOnInit();
-
-    console.log(this.users, ' After')
   }
 
-
-  @Input() users!:User[];
+  filterID!: any;
+  @Output() userForModify = new EventEmitter<User>()
+  @Input() users!: User[];
 }

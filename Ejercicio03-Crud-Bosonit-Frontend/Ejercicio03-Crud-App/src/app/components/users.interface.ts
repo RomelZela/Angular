@@ -1,8 +1,9 @@
 export interface User {
-    id?:   string | undefined;
-    usuario?:  string | undefined;
-    password?:  string | undefined;
-    suscrito?: boolean | undefined;
-    pais?:     string | undefined;
-    ciudad?:   string | undefined;
+    id?:   string;
+    usuario?:  string;
+    correo?: string;
+    password?:  string;
+    suscrito?: boolean;
+    pais?:     string;
+    ciudad?:   string;
 }
