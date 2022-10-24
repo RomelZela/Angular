@@ -1,0 +1,18 @@
+input{
+    padding:5px;
+    width: 400px;
+    border-top: none;
+    font-size: 20px;
+}
+input::placeholder{
+    color:black;
+}
+h1{
+    font-size: 30px;
+    margin: 40px;
+    padding-top: 40px;
+}
+form{
+    margin: 50px;
+    font-size: 20px;
+}

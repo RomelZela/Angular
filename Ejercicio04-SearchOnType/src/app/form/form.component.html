@@ -1,0 +1,18 @@
+<h1> Buscador de Uniersidades</h1>
+
+<form class="example-form">
+
+    <mat-button-toggle-group (change)="submit($event)">
+        <mat-button-toggle value="ES">España</mat-button-toggle>
+        <mat-button-toggle value="GB">Reino Unido</mat-button-toggle>
+        <mat-button-toggle value="PT">Portugal</mat-button-toggle>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <input matInput name="input" [(ngModel)]="valueInput" (keyup)="inputSearch()" placeholder="Buscar...">
+        </mat-form-field>
+    </mat-button-toggle-group>
+
+</form>
+
+
+<app-list *ngIf="listUnivesitiesFiltred" [universities]="listUnivesitiesFiltred"></app-list>
