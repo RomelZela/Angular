@@ -1,0 +1,7 @@
+<div class="container">
+    <div class="ledColor {{colorActive == 'red' ? 'red' : ''}}"></div>
+    <div class="ledColor {{colorActive == 'yellow' ? 'yellow' : ''}}"></div>
+    <div class="ledColor {{colorActive == 'green' ? 'green' : ''}}"></div>
+</div>
+
+<app-controller (turnOnLight)="switchLight($event)" ></app-controller>
