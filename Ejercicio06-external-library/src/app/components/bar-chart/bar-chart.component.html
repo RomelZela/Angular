@@ -1,0 +1,18 @@
+<h4>Grafica BAR</h4>
+
+  <div *ngIf="barChartData.labels; else dataNotFound ui-grid-auto-resize ">
+    <div>
+      <div>
+        <canvas baseChart
+          [data]="barChartData"
+          [options]="barChartOptions"
+          [type]="barChartType">
+        </canvas>
+      </div>
+    </div>
+  </div>
+
+
+    <ng-template #dataNotFound>
+      Información no encontrada
+  </ng-template>

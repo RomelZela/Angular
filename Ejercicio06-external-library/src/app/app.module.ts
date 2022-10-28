@@ -1,0 +1,26 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { ChartsComponent } from './pages/charts/charts.component';
+
+import { HttpClientModule, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
+import { ChartsModule } from './components/charts.module';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ChartsModule,
+  ],
+  exports:[
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
