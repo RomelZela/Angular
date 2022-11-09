@@ -1,0 +1,26 @@
+<h2>{{number}}</h2>
+<span>Setup</span><br>
+<button id="start" class="countButton">Start</button>
+<button id="pause" class="countButton">Pause</button>
+<button id="reset" class="countButton">Reset</button>
+<br>
+<span>Count</span><br>
+<button id="countUp" class="countButton">Count up</button>
+<button id="countDown" class="countButton">Count down</button>
+<br>
+<span>Set to</span><br>
+<input 
+    type="number" 
+    name="setTo" 
+    id="setTo"
+    (change)="setTo($event)"
+    >
+<br>
+<span>Step</span><br>
+<input 
+    type="number" 
+    name="step" 
+    id="step"
+    (change)="setStep($event)"
+    >
+<br>
